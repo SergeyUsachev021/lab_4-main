@@ -10,13 +10,13 @@ template <typename T, size_t BlockSize = 10>
 class MyAllocator
 {
 public:
-    using value_type = T; // Определяем тип значения
-    using pointer = T *;  // Определяем указатель на тип T
+    using value_type = T; 
+    using pointer = T *;  
     using const_pointer = const T *;
-    using reference = T &;                  // Определяем ссылку на тип T
-    using const_reference = const T &;      // Определяем константную ссылку на тип T
-    using size_type = std::size_t;          // Определяем тип для размера
-    using difference_type = std::ptrdiff_t; // Определяем тип для разности указателей
+    using reference = T &;                
+    using const_reference = const T &;      
+    using size_type = std::size_t;        
+    using difference_type = std::ptrdiff_t; 
 
     // Структура rebind для поддержки аллокации
     template <typename U>
@@ -24,14 +24,14 @@ public:
     {
         using other = MyAllocator<U, BlockSize>; // Переопределяем аллокатор для другого типа U
     };
-
+    //Конструктор
     MyAllocator() noexcept = default;
 
     template <typename U>
     MyAllocator(const MyAllocator<U, BlockSize> &) noexcept {} // Конструктор копирования для другого типа
 
     pointer allocate(size_type n)
-    { // Метод выделения памяти
+    { // Метод выделения памяти n длина контейнера
         if (n > BlockSize)
         {                                                               // Если запрашиваемое количество больше размера блока
             return static_cast<pointer>(::operator new(n * sizeof(T))); // Используем стандартный оператор new
@@ -85,14 +85,14 @@ private:
 template <typename T, typename U, size_t BlockSize>
 bool operator==(const MyAllocator<T, BlockSize> &, const MyAllocator<U, BlockSize> &) noexcept
 {
-    return true; // Всегда возвращает true, так как аллокаторы эквивалентны по определению
+    return true; 
 }
 
 // Оператор сравнения для аллокаторов (неравенство)
 template <typename T, typename U, size_t BlockSize>
 bool operator!=(const MyAllocator<T, BlockSize> &, const MyAllocator<U, BlockSize> &) noexcept
 {
-    return false; // Всегда возвращает false, так как аллокаторы эквивалентны по определению
+    return false; 
 }
 
 // Шаблонный класс MyContainer для хранения элементов типа T с использованием заданного аллокатора
@@ -151,25 +151,25 @@ int factorial(int n)
 
 int main()
 {
-    // 1. Создание экземпляра std::map<int, int>;
+
     std::map<int, int> map1;
 
-    // 2. Заполнение 10 элементами, где ключ – это число от 0 до 9, а значение – факториал ключа;
+    // Заполнение 10 элементами, где ключ – это число от 0 до 9, а значение – факториал ключа;
     for (int i = 0; i < 10; ++i)
     {
         map1[i] = factorial(i); // Заполняем map1 ключами от 0 до 9 и значениями - факториал этих ключей.
     }
 
-    // 3. Создание экземпляра std::map<int, int> с новым аллокатором, ограниченным 10 элементами;
+    //  Создание экземпляра map с новым аллокатором, огр 10 эл словарь с аллокатором
     std::map<int, int, std::less<int>, MyAllocator<std::pair<const int, int>, 10>> map2;
 
-    // 4. Заполнение 10 элементами, где ключ – это число от 0 до 9, а значение – факториал ключа;
+    //  Заполнение 10 эл где ключ это число от 0 до 9, а значение – факториал ключа;
     for (int i = 0; i < 10; ++i)
     {
-        map2[i] = factorial(i); // Заполняем map2 ключами от 0 до 9 и значениями - факториал этих ключей.
+        map2[i] = factorial(i); // Заполняем map2 ключами от 0 до 9 и значениями факториал этих ключей.
     }
 
-    // 5. Вывод на экран всех значений (ключ и значение разделены пробелом), хранящихся в контейнере;
+    // Вывод на экран всех значений (ключ и значение разделены пробелом), хранящихся в контейнере;
     std::cout << "map1:" << std::endl;
     for (const auto &[key, value] : map1)
     {
