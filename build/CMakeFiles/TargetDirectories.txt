@@ -1,0 +1,9 @@
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/MyExecutable.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/package.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/package_source.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/edit_cache.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/rebuild_cache.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/list_install_components.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/install.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/install/local.dir
+C:/Users/SerGO/Desktop/lab_4-main/build/CMakeFiles/install/strip.dir

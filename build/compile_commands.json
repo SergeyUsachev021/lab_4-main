@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/SerGO/Desktop/lab_4-main/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -g -std=gnu++11 -o CMakeFiles\\MyExecutable.dir\\main.cpp.obj -c C:\\Users\\SerGO\\Desktop\\lab_4-main\\main.cpp",
+  "file": "C:\\Users\\SerGO\\Desktop\\lab_4-main\\main.cpp",
+  "output": "CMakeFiles\\MyExecutable.dir\\main.cpp.obj"
+}
+]
