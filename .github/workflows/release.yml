@@ -1,4 +1,4 @@
-name: 'C++ CI on macOS'
+name: 'C++ CI'
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # Используем macOS для выполнения работы
+    runs-on: ubuntu-latest
     permissions:
       contents: write  # Необходимое разрешение для создания релиза
 
@@ -21,7 +21,7 @@ jobs:
 
       # Шаг 2: Установка зависимостей (например, Boost)
       - name: Install dependencies
-        run: brew install cmake boost  # Установка CMake и Boost через Homebrew
+        run: sudo apt-get update && sudo apt-get install libboost-test-dev cmake g++ -y
 
       # Шаг 3: Генерация файлов сборки с помощью CMake
       - name: Configure CMake
