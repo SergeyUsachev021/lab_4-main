@@ -10,13 +10,13 @@ template <typename T, size_t BlockSize = 10>
 class MyAllocator
 {
 public:
-    using value_type = T; 
-    using pointer = T *;  
+    using value_type = T;
+    using pointer = T *;
     using const_pointer = const T *;
-    using reference = T &;                
-    using const_reference = const T &;      
-    using size_type = std::size_t;        
-    using difference_type = std::ptrdiff_t; 
+    using reference = T &;
+    using const_reference = const T &;
+    using size_type = std::size_t;
+    using difference_type = std::ptrdiff_t;
 
     // Структура rebind для поддержки аллокации
     template <typename U>
@@ -24,7 +24,7 @@ public:
     {
         using other = MyAllocator<U, BlockSize>; // Переопределяем аллокатор для другого типа U
     };
-    //Конструктор
+    // Конструктор
     MyAllocator() noexcept = default;
 
     template <typename U>
@@ -85,14 +85,14 @@ private:
 template <typename T, typename U, size_t BlockSize>
 bool operator==(const MyAllocator<T, BlockSize> &, const MyAllocator<U, BlockSize> &) noexcept
 {
-    return true; 
+    return true;
 }
 
 // Оператор сравнения для аллокаторов (неравенство)
 template <typename T, typename U, size_t BlockSize>
 bool operator!=(const MyAllocator<T, BlockSize> &, const MyAllocator<U, BlockSize> &) noexcept
 {
-    return false; 
+    return false;
 }
 
 // Шаблонный класс MyContainer для хранения элементов типа T с использованием заданного аллокатора
@@ -185,7 +185,7 @@ int main()
     // 6. Создание экземпляра своего контейнера для хранения значений типа int;
     MyContainer<int> container1;
 
-    // 7. Заполнение 10 элементами от 0 до 9;
+    // 7. Заполнение 10 элементами от 0 доrwq 9;
     for (int i = 0; i < 10; ++i)
     {
         container1.push_back(i); // Добавляем значения от 0 до 9 в container1.
